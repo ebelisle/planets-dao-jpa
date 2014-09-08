@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'eclipse'
+
+
+group = 'com.bellobjects'
+version = '0.0.2-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = 'UTF-8'
+
+ext {
+    hibernateVersion = '4.1.10.Final'
+    springVersion = '3.2.2.RELEASE'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.1.Final'
+    compile 'com.bellobjects:planets-dao:0.0.2-SNAPSHOT'
+    compile "org.hibernate:hibernate-entitymanager:${hibernateVersion}"
+    compile "org.springframework:spring-context:${springVersion}"
+    compile "org.springframework:spring-orm:${springVersion}"
+    compile "org.springframework:spring-test:${springVersion}"
+    compile 'com.h2database:h2:1.3.170'
+    compile 'junit:junit:4.11'
+}
+
+publishing {
+    publications {
+       maven(MavenPublication) {
+           from components.java
+       }
+    }
+}
+
