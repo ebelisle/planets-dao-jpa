@@ -1,15 +1,15 @@
 package com.bellobjects.planets.dao.jpa;
 
+import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.Test;
+import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 import com.bellobjects.planets.dao.jpa.config.TestConfiguration;
 
 @ContextConfiguration(classes = { TestConfiguration.class })
-@Test
-public class SpringH2Test extends AbstractTestNGSpringContextTests {
+public class SpringH2Test extends AbstractJUnit4SpringContextTests {
 
+	@Test
 	public void noTest() {
 
 	}
